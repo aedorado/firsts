@@ -1,0 +1,68 @@
+
+/* Importing the partial file '_reset.scss' */
+@import 'reset';
+
+/* Variables */
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #3de3f3;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+/*Nesting*/
+
+nav {
+	ul {
+		list-style: none;
+	}
+
+	li {
+		float: left;
+		margin: 5px;
+		padding: 4px;
+	}
+
+	a {
+		color: $primary-color;
+	}
+
+	a:hover {
+		background-color: $primary-color;
+		color: black;
+	}
+}
+
+/* Mixins */
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+.box {
+	@include border-radius(10px);
+}
+
+/*Inheritance/Extend*/
+.message {
+	border: 1px solid red;
+	padding: 10px;
+	color: #124ade;
+	clear: both;
+}
+
+.success {
+	@extend .message;
+	background-color: #5d2;
+	width: 300px / 960px * 100%;
+}
+
+.error {
+	@extend .message;
+	background-color: #d32;
+	width: 660px / 960px * 100%;
+}
